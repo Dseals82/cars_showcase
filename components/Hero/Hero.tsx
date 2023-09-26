@@ -12,8 +12,8 @@ const Hero = () => {
           Find, book, or rent a car &mdash; quickly and easily!
         </h1>
         <p className="hero__subtitle">
-          Streamline your car rental expereicne with our effortless booking
-          precess
+          Streamline your car rental experience with our effortless booking
+          process.
         </p>
         <CustomButton
           title="Explore Cars"
