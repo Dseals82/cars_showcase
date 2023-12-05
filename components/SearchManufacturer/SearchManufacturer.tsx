@@ -28,11 +28,6 @@ const SearchManufacturer = ({
 
   return (
     <div className="search-manufacturer">
-      <input
-        type="text"
-        value={query}
-        onChange={(event) => handleInputChange}
-      />
       <Combobox value={manufacturer} onChange={setManufacturer}>
         <div className="relative w-full">
           {/* Button for the combobox. Click on the icon to see the complete dropdown */}
@@ -50,7 +45,7 @@ const SearchManufacturer = ({
           <Combobox.Input
             className="search-manufacturer__input"
             displayValue={(item: string) => item}
-            onChange={(event) => handleInputChange} // Update the search query when the input changes
+            onChange={(event) => handleInputChange(event)} // Update the search query when the input changes
             placeholder="Volkswagen..."
           />
 
