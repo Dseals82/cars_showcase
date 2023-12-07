@@ -55,7 +55,7 @@ const SearchManufacturer = ({
           >
             <Combobox.Options>
               {filteredManufacturers.length === 0 && query !== "" ? (
-                <div className="relative cursor-default select-none px-4 py-2 text-gray-700">
+                <div className="relative cursor-default select-none px-4 py-2 text-red-600">
                   Nothing found.
                 </div>
               ) : (
