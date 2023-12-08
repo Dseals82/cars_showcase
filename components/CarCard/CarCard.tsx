@@ -7,6 +7,7 @@ import CustomButton from "../CustomButton/CustomButton";
 import { calculateCarRent } from "@/utils";
 
 const CarCard = ({ car }: CarCardProps) => {
+  const [isOpen, setIsOpen] = useState(false);
   const { city_mpg, year, make, model, transmission, drive } = car;
   const carRentalPrice = calculateCarRent(city_mpg, year);
   return (
@@ -17,10 +18,14 @@ const CarCard = ({ car }: CarCardProps) => {
         </h2>
       </div>
 
-      <p className="flex mt-6 text-[32px] font-extrabold">
-        <span className="self-start text-[14] font-semibold">$</span>
+      <p className="flex mt-6 text-[32px] leading-[38px] font-extrabold">
+        <span className="self-start text-[14px] leading-[17px] font-semibold">
+          $
+        </span>
         {carRentalPrice}
-        <span className="self-end text-[14] font-medium">/day</span>
+        <span className="self-end text-[14px] leading-[17px] font-medium">
+          /day
+        </span>
       </p>
 
       <div className="relative w-full h-40 my-3 object-contain">
@@ -34,7 +39,7 @@ const CarCard = ({ car }: CarCardProps) => {
       </div>
 
       <div className="relative flex w-full mt-2">
-        <div className="flex group-hover:invisible w-full justfiy-between text-gray ">
+        <div className="flex group-hover:invisible w-full justify-between text-gray ">
           <div className="flex flex-col justify-center items-center gap-2">
             <Image
               src="/steering-wheel.svg"
@@ -42,10 +47,30 @@ const CarCard = ({ car }: CarCardProps) => {
               height={20}
               alt="steering wheel"
             />
-            <p className="text-[14px]">
+            <p className="text-[14px] leading-[17px]">
               {transmission === "a" ? "Automatic" : "Manual"}
             </p>
           </div>
+          <div className="flex flex-col justify-center items-center gap-2">
+            <Image src="/tire.svg" width={20} height={20} alt="tire" />
+            <p className="text-[14px]">{drive.toUpperCase()}</p>
+          </div>
+
+          <div className="flex flex-col justify-center items-center gap-2">
+            <Image src="/gas.svg" width={20} height={20} alt="gas" />
+            <p className="text-[14px]">{city_mpg} MPG</p>
+          </div>
+        </div>
+
+        <div className="car-card__btn-container">
+          <CustomButton
+            btnType="button"
+            title="View More"
+            containerStyles="w-full py-[16px] rounded-full bg-primary-blue"
+            textStyles="text-white text-[14px] leading-[17px] font-bold"
+            rightIcon="/right-arrow.svg"
+            handleClick={() => setIsOpen(true)}
+          />
         </div>
       </div>
     </div>
